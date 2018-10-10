@@ -10,9 +10,9 @@ public class Paddle : MonoBehaviour {
     {
 		
 	}
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update ()
     {
         float mousePosX = Input.mousePosition.x / Screen.width * screenWidthInUnits;
         mousePosX = Mathf.Clamp(mousePosX, 1f, screenWidthInUnits - 1);
