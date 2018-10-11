@@ -40,4 +40,9 @@ public class Ball : MonoBehaviour {
         myRigidbody2D.velocity += velocityTweak;
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        SceneLoader scene = FindObjectOfType<SceneLoader>();
+        scene.LoadGameOverScene();
+    }
 }

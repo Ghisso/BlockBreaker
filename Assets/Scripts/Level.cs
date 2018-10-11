@@ -30,7 +30,7 @@ public class Level : MonoBehaviour
         score += pointsPerBlockDestroyed;
         if(nbBreakableBlocks == 0)
         {
-            sceneloader.LoadNextScene();
+            sceneloader.LoadGameOverScene();
         }
     }
 }
