@@ -9,6 +9,7 @@ public class Block : MonoBehaviour
     SpriteRenderer mySpriteRenderer;
     [SerializeField] Sprite[] hitSprites;
     int nbHits;
+    Level level;
 
 	// Use this for initialization
 	void Start ()
@@ -16,6 +17,8 @@ public class Block : MonoBehaviour
         myBoxCollider2D = GetComponent<BoxCollider2D>();
         mySpriteRenderer = GetComponent<SpriteRenderer>();
         nbHits = 0;
+        level = FindObjectOfType<Level>();
+        level.CountBreakableBlocks();
     }
 	
 	// Update is called once per frame
@@ -39,6 +42,7 @@ public class Block : MonoBehaviour
         if(nbHits >= maxHits)
         {
             Destroy(gameObject);
+            level.BlockDestroyed();
         }
         else
         {
