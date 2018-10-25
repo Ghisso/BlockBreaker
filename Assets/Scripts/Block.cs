@@ -41,8 +41,8 @@ public class Block : MonoBehaviour
         int maxHits = hitSprites.Length;
         if(nbHits >= maxHits)
         {
-            level.BlockDestroyed();
             Destroy(gameObject);
+            level.BlockDestroyed();
         }
         else
         {
