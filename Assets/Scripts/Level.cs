@@ -5,32 +5,29 @@ using UnityEngine;
 public class Level : MonoBehaviour
 {
 
-    int nbBreakableBlocks;
-    int pointsPerBlockDestroyed;
-    int score;
+    // parameters
+    [SerializeField] int breakableBlocks;  // Serialized for debugging purposes
+
+    // cached reference
     SceneLoader sceneloader;
 
-	// Use this for initialization
-	void Start ()
+    private void Start()
     {
-        nbBreakableBlocks = 0;
-        score = 0;
-        pointsPerBlockDestroyed = 73;
         sceneloader = FindObjectOfType<SceneLoader>();
-	}
-	
+    }
+
     public void CountBreakableBlocks()
     {
-        nbBreakableBlocks++;
+        breakableBlocks++;
     }
 
     public void BlockDestroyed()
     {
-        nbBreakableBlocks --;
-        score += pointsPerBlockDestroyed;
-        if(nbBreakableBlocks == 0)
+        breakableBlocks--;
+        if (breakableBlocks <= 0)
         {
-            sceneloader.LoadGameOverScene();
+            sceneloader.LoadNextScene();
         }
     }
+
 }
