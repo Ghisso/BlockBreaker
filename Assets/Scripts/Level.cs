@@ -5,7 +5,7 @@ using UnityEngine;
 public class Level : MonoBehaviour
 {
 
-    int nbBreakableBlocks;
+    [SerializeField] int nbBreakableBlocks;
     int pointsPerBlockDestroyed;
     int score;
     SceneLoader sceneloader;
@@ -28,7 +28,7 @@ public class Level : MonoBehaviour
     {
         nbBreakableBlocks --;
         score += pointsPerBlockDestroyed;
-        if(nbBreakableBlocks == 0)
+        if(nbBreakableBlocks <= 0)
         {
             sceneloader.LoadGameOverScene();
         }
