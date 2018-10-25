@@ -41,7 +41,9 @@ public class Block : MonoBehaviour
         int maxHits = hitSprites.Length;
         if(nbHits >= maxHits)
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            myBoxCollider2D.enabled = false;
+            mySpriteRenderer.sprite = null;
             level.BlockDestroyed();
         }
         else
