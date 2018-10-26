@@ -43,7 +43,9 @@ public class Block : MonoBehaviour
         {
             //Destroy(gameObject);
             myBoxCollider2D.enabled = false;
-            mySpriteRenderer.sprite = null;
+            Color tmp = mySpriteRenderer.color;
+            tmp.a = 0.3f;
+            mySpriteRenderer.color = tmp;
             level.BlockDestroyed();
         }
         else
