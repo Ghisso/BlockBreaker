@@ -2,14 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ball : MonoBehaviour {
+public class Ball : MonoBehaviour
+{
+
+    #region Variables
 
     bool isStarted = false;
     Paddle paddle;
     float yOffset, xPush = 2.0f, yPush = 15.0f, randomPush = 0.1f;
     Rigidbody2D myRigidbody2D;
 
-    // Use this for initialization
+    #endregion
+
+    #region Unity Methods
+
     void Start ()
     {
         paddle = FindObjectOfType<Paddle>();
@@ -17,7 +23,7 @@ public class Ball : MonoBehaviour {
         myRigidbody2D = GetComponent<Rigidbody2D>();
     }
 	
-	// Update is called once per frame
+
 	void Update ()
     {
         if(!isStarted)
@@ -45,4 +51,6 @@ public class Ball : MonoBehaviour {
         SceneLoader scene = FindObjectOfType<SceneLoader>();
         scene.LoadGameOverScene();
     }
+
+    #endregion
 }

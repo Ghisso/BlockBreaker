@@ -6,6 +6,7 @@ using UnityEngine;
 public class Block : MonoBehaviour
 {
     #region Variables   
+
     BoxCollider2D myBoxCollider2D;
     SpriteRenderer mySpriteRenderer;
     [SerializeField] Sprite[] hitSprites;
@@ -18,9 +19,11 @@ public class Block : MonoBehaviour
     const float collideTime = 0.15f;
     float collideTimer = 0;
     bool canCollide = true;
+
     #endregion
 
-    #region Unity Functions
+    #region Unity Methods
+
     void Start()
     {
         myBoxCollider2D = GetComponent<BoxCollider2D>();
@@ -34,7 +37,6 @@ public class Block : MonoBehaviour
         respawnPhase = 1;
     }
 
-    // Update is called once per frame
     void Update()
     {
         collideTimer += Time.deltaTime;
@@ -70,9 +72,11 @@ public class Block : MonoBehaviour
             HandleHit();
         }
     }
+
     #endregion
 
     #region My Methods
+
     private void HandleHit()
     {
         nbHits++;
@@ -96,5 +100,6 @@ public class Block : MonoBehaviour
     {
         mySpriteRenderer.sprite = hitSprites[nbHits];
     }
+
     #endregion
 }
