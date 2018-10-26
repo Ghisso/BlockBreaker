@@ -78,6 +78,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8802796c120147e3a081f1551af70de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitSprites: []
+  timeToRespawn: 10
 --- !u!212 &212381173390636100
 SpriteRenderer:
   m_ObjectHideFlags: 1
