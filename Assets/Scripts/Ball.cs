@@ -15,7 +15,7 @@ public class Ball : MonoBehaviour
     float xPush = 2.0f, yPush = 15.0f;
 
     [SerializeField] [RangeAttribute(0, 2)]
-    float randomPush = 0.1f;
+    float randomPush = 0.2f;
 
     float yOffset;
 
