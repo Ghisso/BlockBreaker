@@ -9,8 +9,15 @@ public class Ball : MonoBehaviour
 
     bool isStarted = false;
     Paddle paddle;
-    float yOffset, xPush = 2.0f, yPush = 15.0f, randomPush = 0.1f;
     Rigidbody2D myRigidbody2D;
+
+    [SerializeField] [RangeAttribute(0, 50)]
+    float xPush = 2.0f, yPush = 15.0f;
+
+    [SerializeField] [RangeAttribute(0, 2)]
+    float randomPush = 0.1f;
+
+    float yOffset;
 
     #endregion
 
@@ -45,6 +52,7 @@ public class Ball : MonoBehaviour
         Vector2 velocityTweak = new Vector2(randomPush, randomPush);
         myRigidbody2D.velocity += velocityTweak;
     }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

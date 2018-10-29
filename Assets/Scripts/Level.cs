@@ -6,9 +6,9 @@ public class Level : MonoBehaviour
 {
     #region Variables
 
-    [SerializeField] int nbBreakableBlocks;
-    int pointsPerBlockDestroyed;
-    int score;
+    [SerializeField] int nbBreakableBlocks; //just for debugging
+    [SerializeField] int pointsPerBlockDestroyed;
+    [SerializeField] int score; //just for debugging
     SceneLoader sceneloader;
 
     #endregion
@@ -31,6 +31,7 @@ public class Level : MonoBehaviour
     {
         nbBreakableBlocks++;
     }
+
 
     public void BlockDestroyed()
     {

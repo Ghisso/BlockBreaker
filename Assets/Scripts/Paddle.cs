@@ -23,8 +23,7 @@ public class Paddle : MonoBehaviour
     {
         float mousePosX = Input.mousePosition.x / Screen.width * screenWidthInUnits;
         mousePosX = Mathf.Clamp(mousePosX, 1f, screenWidthInUnits - 1);
-        Vector2 paddlePos = new Vector2(mousePosX, transform.position.y);
-        transform.position = paddlePos;
+        transform.position = new Vector2(mousePosX, transform.position.y);
 	}
 
     #endregion

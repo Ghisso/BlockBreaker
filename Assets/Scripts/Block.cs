@@ -30,44 +30,27 @@ public class Block : MonoBehaviour
         mySpriteRenderer = GetComponent<SpriteRenderer>();
         nbHits = 0;
         level = FindObjectOfType<Level>();
-        level.CountBreakableBlocks();
         respawnTimer = 0f;
         respawnTimerActive = false;
         maxHits = hitSprites.Length;
         respawnPhase = 1;
+        if (tag != "Unbreakable")
+            level.CountBreakableBlocks();
     }
+
 
     void Update()
     {
-        collideTimer += Time.deltaTime;
-        canCollide |= collideTimer > collideTime;
-
-        if (respawnTimerActive)
-        {
-            respawnTimer += Time.deltaTime;
-            if(respawnTimer >= respawnPhase * timeToRespawn / maxHits)
-            {
-                nbHits--;
-                mySpriteRenderer.sprite = hitSprites[nbHits];
-                respawnPhase++;
-            }
-            if(respawnPhase > maxHits)
-            {
-                respawnPhase = 1;
-                myBoxCollider2D.enabled = true;
-                Color tmp = mySpriteRenderer.color;
-                tmp.a = 1f;
-                mySpriteRenderer.color = tmp;
-                level.CountBreakableBlocks();
-                respawnTimerActive = false;
-                respawnTimer = 0;
-            }
-        }
+        UpdateColliderTimer();
+        if(tag == "Respawn")
+            HandleRespawn();
     }
+
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (tag == "Breakable" && canCollide)
+        if (tag != "Unbreakable" && canCollide)
         {
             HandleHit();
         }
@@ -75,19 +58,54 @@ public class Block : MonoBehaviour
 
     #endregion
 
+
     #region My Methods
+
+    private void HandleRespawn()
+    {
+        if (respawnTimerActive)
+        {
+            respawnTimer += Time.deltaTime;
+            if (respawnTimer >= respawnPhase * timeToRespawn / maxHits)
+            {
+                nbHits--;
+                mySpriteRenderer.sprite = hitSprites[nbHits];
+                respawnPhase++;
+            }
+            if (respawnPhase > maxHits)
+            {
+                respawnPhase = 1;
+                myBoxCollider2D.enabled = true;
+                mySpriteRenderer.color = new Color(mySpriteRenderer.color.r, mySpriteRenderer.color.g, mySpriteRenderer.color.b, 1f);
+                level.CountBreakableBlocks();
+                respawnTimerActive = false;
+                respawnTimer = 0;
+            }
+        }
+    }
+
+
+    private void UpdateColliderTimer()
+    {
+        collideTimer += Time.deltaTime;
+        canCollide |= collideTimer > collideTime;
+    }
+
 
     private void HandleHit()
     {
         nbHits++;
-        if (nbHits >= maxHits)
+        if (nbHits >= maxHits && tag == "Respawn")
         {
             myBoxCollider2D.enabled = false;
-            Color tmp = mySpriteRenderer.color;
-            tmp.a = 0.3f;
-            mySpriteRenderer.color = tmp;
+            mySpriteRenderer.color = new Color(mySpriteRenderer.color.r, mySpriteRenderer.color.g, mySpriteRenderer.color.b, 0.3f);
             level.BlockDestroyed();
             respawnTimerActive = true;
+        }
+        else if (nbHits >= maxHits && tag != "Respawn")
+        {
+            Destroy(gameObject);
+            level.BlockDestroyed();
         }
         else
         {
@@ -95,6 +113,7 @@ public class Block : MonoBehaviour
         }
         collideTimer = 0f;
     }
+
 
     private void DisplayNextSprite()
     {
