@@ -7,6 +7,7 @@ TagManager:
   - Breakable
   - 2HitBreakable
   - 3HitBreakable
+  - Unbreakable
   layers:
   - Default
   - TransparentFX
@@ -43,4 +44,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 4033382979
+    locked: 0
+  - name: Middleground
+    uniqueID: 60510155
+    locked: 0
+  - name: Foreground
+    uniqueID: 879631213
     locked: 0
