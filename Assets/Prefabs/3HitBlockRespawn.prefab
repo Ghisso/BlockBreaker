@@ -82,7 +82,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 8befd55344f02ca46b00c3907a54afac, type: 3}
   - {fileID: 21300000, guid: a392aaea26f408044ad39006fda2e602, type: 3}
   - {fileID: 21300000, guid: 25899cdc971395c4f91e0c543755b1e2, type: 3}
-  timeToRespawn: 10
+  timeToRespawn: 15
 --- !u!212 &212381173390636100
 SpriteRenderer:
   m_ObjectHideFlags: 1
