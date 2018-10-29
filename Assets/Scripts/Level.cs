@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Level : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class Level : MonoBehaviour
     [SerializeField] int pointsPerBlockDestroyed;
     [SerializeField] int score; //just for debugging
     SceneLoader sceneloader;
+    TextMeshProUGUI scoreText;
 
     #endregion
 
@@ -21,7 +23,9 @@ public class Level : MonoBehaviour
         score = 0;
         pointsPerBlockDestroyed = 73;
         sceneloader = FindObjectOfType<SceneLoader>();
-	}
+        scoreText = FindObjectOfType<TextMeshProUGUI>();
+        scoreText.text = "Score: "+score.ToString();
+    }
 
     #endregion
 
@@ -37,7 +41,8 @@ public class Level : MonoBehaviour
     {
         nbBreakableBlocks --;
         score += pointsPerBlockDestroyed;
-        if(nbBreakableBlocks <= 0)
+        scoreText.text = "Score: " + score.ToString();
+        if (nbBreakableBlocks <= 0)
         {
             sceneloader.LoadGameOverScene();
         }
