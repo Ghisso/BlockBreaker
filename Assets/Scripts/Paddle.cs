@@ -7,6 +7,7 @@ public class Paddle : MonoBehaviour
 
     #region Variables
 
+    public bool canMove { get; set; } = true;
     [SerializeField] float screenWidthInUnits = 16.0f;
 
     #endregion
@@ -21,9 +22,13 @@ public class Paddle : MonoBehaviour
 
     void Update ()
     {
-        float mousePosX = Input.mousePosition.x / Screen.width * screenWidthInUnits;
-        mousePosX = Mathf.Clamp(mousePosX, 1f, screenWidthInUnits - 1);
-        transform.position = new Vector2(mousePosX, transform.position.y);
+        if(canMove)
+        {
+            float mousePosX = Input.mousePosition.x / Screen.width * screenWidthInUnits;
+            mousePosX = Mathf.Clamp(mousePosX, 1f, screenWidthInUnits - 1);
+            transform.position = new Vector2(mousePosX, transform.position.y);
+        }
+
 	}
 
     #endregion

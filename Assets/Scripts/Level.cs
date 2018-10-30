@@ -12,6 +12,10 @@ public class Level : MonoBehaviour
     [SerializeField] int score; //just for debugging
     SceneLoader sceneloader;
     TextMeshProUGUI scoreText;
+    [SerializeField] GameObject nextLevelPanel;
+    [SerializeField] GameObject gameOverPanel;
+    [SerializeField] Ball ball;
+    [SerializeField] Paddle paddle;
 
     #endregion
 
@@ -25,6 +29,16 @@ public class Level : MonoBehaviour
         sceneloader = FindObjectOfType<SceneLoader>();
         scoreText = FindObjectOfType<TextMeshProUGUI>();
         scoreText.text = "Score: "+score.ToString();
+    }
+
+    private void Update()
+    {
+        if (ball.isLost == true)
+        {
+            gameOverPanel.SetActive(true);
+            paddle.canMove = false;
+            ball.isStarted = false;
+        }
     }
 
     #endregion
@@ -44,7 +58,9 @@ public class Level : MonoBehaviour
         scoreText.text = "Score: " + score.ToString();
         if (nbBreakableBlocks <= 0)
         {
-            sceneloader.LoadGameOverScene();
+            nextLevelPanel.SetActive(true);
+            paddle.canMove = false;
+            ball.isStarted = false;
         }
     }
 

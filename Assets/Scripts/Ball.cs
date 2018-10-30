@@ -7,7 +7,8 @@ public class Ball : MonoBehaviour
 
     #region Variables
 
-    bool isStarted = false;
+    public bool isLost { get; private set;} = false;
+    public bool isStarted { get; set; } = false;
     Paddle paddle;
     Rigidbody2D myRigidbody2D;
 
@@ -56,8 +57,7 @@ public class Ball : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        SceneLoader scene = FindObjectOfType<SceneLoader>();
-        scene.LoadGameOverScene();
+        isLost = true;
     }
 
     #endregion

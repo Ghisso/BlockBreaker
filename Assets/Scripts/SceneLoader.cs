@@ -26,6 +26,11 @@ public class SceneLoader : MonoBehaviour
         SceneManager.LoadScene("GameOver");
     }
 
+    public void ReloadScene()
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentSceneIndex);
+    }
 
     public void QuitGame()
     {
