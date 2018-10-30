@@ -108,6 +108,7 @@ public class Level : MonoBehaviour
             sceneloader = FindObjectOfType<SceneLoader>();
             score = savedScore;
             scoreText.text = "Score: " + score.ToString();
+            nbBreakableBlocks = 0;
         }
         //Game Over scene
         else
