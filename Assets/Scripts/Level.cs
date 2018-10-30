@@ -94,7 +94,7 @@ public class Level : MonoBehaviour
         if (level == 0)
             Reset();
         //Any Scene except Main Menu and GameOver
-        else if (level < sceneloader.GetTotalNumberOfScenesInBuild())
+        else if (level < sceneloader.GetTotalNumberOfScenesInBuild()-1)
         {
             scoreText = FindObjectOfType<TextMeshProUGUI>();
 
