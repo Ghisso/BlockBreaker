@@ -995,26 +995,6 @@ Prefab:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114491340754552762, guid: e32d70b477bd74cb3b14702e8b193200,
-        type: 2}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114491340754552762, guid: e32d70b477bd74cb3b14702e8b193200,
-        type: 2}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114389110561625150, guid: e32d70b477bd74cb3b14702e8b193200,
-        type: 2}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114389110561625150, guid: e32d70b477bd74cb3b14702e8b193200,
-        type: 2}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e32d70b477bd74cb3b14702e8b193200, type: 2}
   m_IsPrefabAsset: 0

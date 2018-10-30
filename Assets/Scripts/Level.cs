@@ -59,6 +59,7 @@ public class Level : MonoBehaviour
         if (ball.isLost == true)
         {
             gameOverPanel.SetActive(true);
+            gameOverPanel.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "Score: " + score.ToString();
             paddle.canMove = false;
             ball.isStarted = false;
         }
@@ -82,6 +83,7 @@ public class Level : MonoBehaviour
         if (nbBreakableBlocks <= 0)
         {
             nextLevelPanel.SetActive(true);
+            nextLevelPanel.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = "Score: " + score.ToString();
             paddle.canMove = false;
             ball.isStarted = false;
             savedScore = score;
@@ -115,7 +117,7 @@ public class Level : MonoBehaviour
         {
             GameObject tmp = GameObject.Find("ScoreText");
             scoreText = tmp.GetComponent<TextMeshProUGUI>();
-            scoreText.text = score.ToString();
+            scoreText.text = "Score: " + score.ToString();
         }
     }
 
