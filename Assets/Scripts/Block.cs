@@ -11,7 +11,7 @@ public class Block : MonoBehaviour
     SpriteRenderer mySpriteRenderer;
     [SerializeField] Sprite[] hitSprites;
     int nbHits;
-    Level level;
+    [SerializeField] Level level;
     float respawnTimer;
     [SerializeField] float timeToRespawn = 10f;
     bool respawnTimerActive;
@@ -29,7 +29,8 @@ public class Block : MonoBehaviour
         myBoxCollider2D = GetComponent<BoxCollider2D>();
         mySpriteRenderer = GetComponent<SpriteRenderer>();
         nbHits = 0;
-        level = FindObjectOfType<Level>();
+        GameObject tmp = GameObject.Find("Level");
+        level = tmp.GetComponent<Level>();
         respawnTimer = 0f;
         respawnTimerActive = false;
         maxHits = hitSprites.Length;

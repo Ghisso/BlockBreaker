@@ -17,6 +17,7 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadStartScene()
     {
+        //FindObjectOfType<Level>().Reset();
         SceneManager.LoadScene(0);
     }
 
@@ -26,11 +27,19 @@ public class SceneLoader : MonoBehaviour
         SceneManager.LoadScene("GameOver");
     }
 
+
     public void ReloadScene()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex);
     }
+
+
+    public int GetTotalNumberOfScenesInBuild()
+    {
+        return SceneManager.sceneCountInBuildSettings;
+    }
+
 
     public void QuitGame()
     {
