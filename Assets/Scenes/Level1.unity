@@ -1479,6 +1479,16 @@ Prefab:
       propertyPath: paddle
       value: 
       objectReference: {fileID: 503676844}
+    - target: {fileID: 114345240814913688, guid: 5f2007b5e8dd75b4fb4500e7561833aa,
+        type: 2}
+      propertyPath: scoreText
+      value: 
+      objectReference: {fileID: 2125445985}
+    - target: {fileID: 114345240814913688, guid: 5f2007b5e8dd75b4fb4500e7561833aa,
+        type: 2}
+      propertyPath: sceneloader
+      value: 
+      objectReference: {fileID: 1503929042}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f2007b5e8dd75b4fb4500e7561833aa, type: 2}
   m_IsPrefabAsset: 0

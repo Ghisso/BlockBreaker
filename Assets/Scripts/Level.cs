@@ -10,12 +10,12 @@ public class Level : MonoBehaviour
     [SerializeField] int nbBreakableBlocks; //just for debugging
     [SerializeField] int pointsPerBlockDestroyed;
     [SerializeField] int score; //just for debugging
-    SceneLoader sceneloader;
-    TextMeshProUGUI scoreText;
+    [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] GameObject nextLevelPanel;
     [SerializeField] GameObject gameOverPanel;
     [SerializeField] Ball ball;
     [SerializeField] Paddle paddle;
+    [SerializeField] SceneLoader sceneloader;
 
     #endregion
 
@@ -27,7 +27,6 @@ public class Level : MonoBehaviour
         score = 0;
         pointsPerBlockDestroyed = 73;
         sceneloader = FindObjectOfType<SceneLoader>();
-        scoreText = FindObjectOfType<TextMeshProUGUI>();
         scoreText.text = "Score: "+score.ToString();
     }
 
